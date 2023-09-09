@@ -1,12 +1,16 @@
 import Layout from '@/components/Layout'
-import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({ subsets: ['latin'] });
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		<div className={`${montserrat} `}>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</div>
 	)
 }
