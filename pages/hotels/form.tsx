@@ -1,21 +1,22 @@
+import moment from "moment";
+
+import { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
+import { Button, Image, Text } from "@mantine/core";
+import { Carousel } from "@mantine/carousel";
+import { DatePicker } from "@mantine/dates";
+import { AiOutlineWifi } from "react-icons/ai";
+import { MdOutlineCoffeeMaker, MdOutlineFreeBreakfast } from "react-icons/md";
+import { LuBedDouble } from "react-icons/lu";
+
 import {
   HotelCardProps,
   useCardStyles,
 } from "./components/HotelCard/HotelCard";
-import { Button, Image, Text } from "@mantine/core";
-import { Carousel } from "@mantine/carousel";
-import { DatePicker } from "@mantine/dates";
-
 import hotels from "./static/hotels.static";
-import { AiOutlineWifi } from "react-icons/ai";
-import { MdOutlineCoffeeMaker, MdOutlineFreeBreakfast } from "react-icons/md";
-import { LuBedDouble } from "react-icons/lu";
-import { useState } from "react";
-import moment from "moment";
 
 const Form: NextPage<HotelCardProps> = (props) => {
-  const { name, price, images, description } = props;
+  const { name, price, images, description, map } = props;
   const { classes } = useCardStyles();
 
   const [value, setValue] = useState<[Date | null, Date | null]>([
@@ -69,20 +70,15 @@ const Form: NextPage<HotelCardProps> = (props) => {
         </div>
       </div>
       <div className="text-xl font-medium mt-4">Unde se afla?</div>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11105.409169576922!2d28.1939586!3d45.9042659!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65dd9fa93cc13%3A0x4aa96d5cebd20e8d!2sLinella!5e0!3m2!1sen!2s!4v1694276218423!5m2!1sen!2s"
-        className="mt-4 w-full aspect-square"
-        style={{ border: 0 }}
-        allowFullScreen
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
+      <div dangerouslySetInnerHTML={{ __html: map }} />
       <div className="text-xl font-medium mt-4 pt-4 border-b-[#ddd] border-t-[1px]">
         {days ? `${days} nopți la ${name}` : "Selecteaza data de check-out"}
       </div>
       <Text c="dimmed" className="text-sm">
         {value[0] && value[1]
-          ? moment(value[0]).format("DD MMM. YYYY")
+          ? `${moment(value[0]).format("DD MMM. YYYY")} - ${moment(
+              value[1]
+            ).format("DD MMM. YYYY")}`
           : "Perioadă minimă de ședere: 1 noapte"}
       </Text>
       <div className="flex items-center justify-center">

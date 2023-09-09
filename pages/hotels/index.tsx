@@ -1,21 +1,24 @@
-import {
-  Button,
-  Card,
-  Group,
-  Skeleton,
-  Text,
-} from "@mantine/core";
+import { Button, Card, Group, Skeleton, Text, TextInput } from "@mantine/core";
 import { AiFillStar } from "react-icons/ai";
 
 import hotels from "./static/hotels.static";
 import HotelCard from "./components/HotelCard/HotelCard";
+import { useState } from "react";
 
 const Hotels = () => {
+  const [filter, setFilter] = useState("");
+
   return (
     <section className="max-w-7xl mx-auto pb-16">
-      <div className="text-5xl font-semibold mb-4">Hotel-uri</div>
+      <div className="text-5xl font-semibold mb-4">Hoteluri</div>
+      <TextInput
+        placeholder="Scrie pentru a cauta..."
+        className="mb-4"
+        value={filter}
+        onChange={(event) => setFilter(event.target.value)}
+      />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-        {hotels.map((item, index) => (
+        {hotels.filter((item) => filter ? item.name.includes(filter) : true).map((item, index) => (
           <HotelCard {...item} key={`${index}-h`} />
         ))}
         <Card withBorder className="flex flex-col">
@@ -29,7 +32,7 @@ const Hotels = () => {
               </Text>
 
               <Group spacing={5}>
-                <AiFillStar color="yellow" />
+                <AiFillStar color="#333" />
                 <Text fz="xs" fw={500}>
                   5
                 </Text>
