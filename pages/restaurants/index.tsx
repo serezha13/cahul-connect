@@ -1,6 +1,5 @@
 const Restaurants = () => {
-    return <></>;
-  };
-  
-  export default Restaurants;
-  
+  return <></>;
+};
+
+export default Restaurants;
