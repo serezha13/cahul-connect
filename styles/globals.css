@@ -11,5 +11,5 @@
 }
 
 .title {
-    @apply text-center font-bold text-4xl;
+    @apply text-5xl font-semibold mb-4;
 }
