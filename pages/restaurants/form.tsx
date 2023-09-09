@@ -1,5 +1,5 @@
 import { mockRestaurants } from '@/apps/restaurants/mock-data';
-import { Button, NumberInput, TextInput } from '@mantine/core';
+import { Button, TextInput } from '@mantine/core';
 import { DateInput, TimeInput } from '@mantine/dates';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -21,7 +21,7 @@ const Form: NextPage = () => {
 
             <form className="flex flex-col gap-y-2">
                 <TextInput placeholder="Your name" label="Full name" withAsterisk />
-                <NumberInput placeholder="Your phone number" label="Phone number" withAsterisk hideControls />
+                <TextInput placeholder="Your phone number" label="Phone number" withAsterisk />
                 <div className="flex justify-between gap-x-5">
                     <DateInput
                         className="flex-grow"
