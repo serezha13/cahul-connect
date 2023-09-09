@@ -20,6 +20,7 @@ export interface HotelCardProps {
   price: number;
   images: string[];
   description: string;
+  map: string;
 }
 
 export const useCardStyles = createStyles((theme) => ({
@@ -91,7 +92,7 @@ const HotelCard = (props: HotelCardProps) => {
         </Text>
 
         <Group spacing={5}>
-          <AiFillStar color="yellow" />
+          <AiFillStar color="#333" />
           <Text fz="xs" fw={500}>
             {stars}
           </Text>
@@ -111,7 +112,7 @@ const HotelCard = (props: HotelCardProps) => {
           </Text>
         </div>
 
-        <Button radius="md" variant="outline" className="border-[#333]" onClick={() => router.push(`hotels/form?id=${id}`)}>
+        <Button radius="md" variant="outline" className="border-[#333] text-[#333]" onClick={() => router.push(`hotels/form?id=${id}`)}>
           Bronează
         </Button>
       </Group>

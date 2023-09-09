@@ -14,6 +14,7 @@ const hotels: HotelCardProps[] = [
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/296914595.jpg?k=055441430a350f91eb89dda7f52e09733bea6154fd3e3886cd92bfa32393e357&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/288206223.jpg?k=3c9c5c92960e9c56926c1a9889de15a6644425348320682cd5959acb3c13a066&o=&hp=1",
     ],
+    map: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d460059.3540901191!2d27.70398652479593!3d45.92359560346171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65cecaa5dea8d%3A0xc47b4e6b7c042293!2sMarco%20Polo!5e0!3m2!1sru!2s!4v1694289474956!5m2!1sru!2s" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>`
   },
 	{
     id: 2,
@@ -28,6 +29,7 @@ const hotels: HotelCardProps[] = [
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/413869105.jpg?k=b3e5d2c3a07526614fcbb5a9e4264ceb232c3c5d94aa731f3e2c9aefb3883dfa&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/413869653.jpg?k=bdaa6230a263f1e5e715cd81d019886b4a838d6a0a95ca238544ce344e752cdd&o=&hp=1",
     ],
+    map: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d460059.3540901191!2d27.70398652479593!3d45.92359560346171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65cecaa5dea8d%3A0xc47b4e6b7c042293!2sMarco%20Polo!5e0!3m2!1sru!2s!4v1694289474956!5m2!1sru!2s" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>`
   },
 	{
     id: 3,
@@ -42,6 +44,7 @@ const hotels: HotelCardProps[] = [
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/300347485.jpg?k=898d02b55cd76c409eda9f70b99f5713fc669efd4e29e414c18c9edaa6ebc350&o=&hp=1",
       "https://cf.bstatic.com/xdata/images/hotel/max1280x900/300342034.jpg?k=05cd86a5db7056050f42724011ae52cb1fa8af847ac9b86333d4945c1a4ecc71&o=&hp=1",
     ],
+    map: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d460059.3540901191!2d27.70398652479593!3d45.92359560346171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65cecaa5dea8d%3A0xc47b4e6b7c042293!2sMarco%20Polo!5e0!3m2!1sru!2s!4v1694289474956!5m2!1sru!2s" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>`
   },
 ];
 
