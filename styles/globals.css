@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    color: #333;
+}
+
+.mantine-Carousel-control {
+    background-color: white;
+}
