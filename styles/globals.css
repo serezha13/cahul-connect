@@ -9,3 +9,7 @@
 .mantine-Carousel-control {
     background-color: white;
 }
+
+.title {
+    @apply text-center font-bold text-4xl;
+}
