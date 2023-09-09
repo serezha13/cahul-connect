@@ -2,6 +2,7 @@ import { HotelCardProps } from "../components/HotelCard/HotelCard";
 
 const hotels: HotelCardProps[] = [
   {
+    id: 1,
     name: "Marco Polo",
     description:
       "Situat în Cahul, Marco Polo are un restaurant, un bar, o grădină și WiFi gratuit în întreaga proprietate.",
@@ -15,6 +16,7 @@ const hotels: HotelCardProps[] = [
     ],
   },
 	{
+    id: 2,
     name: "Oasis",
     description:
       "Situat în Cahul, Oasis are un restaurant, un bar, o grădină și WiFi gratuit în întreaga proprietate.",
@@ -28,6 +30,7 @@ const hotels: HotelCardProps[] = [
     ],
   },
 	{
+    id: 3,
     name: "El Cairo",
     description:
       "Situat în Cahul, El Cairo are un restaurant, un bar, o grădină și WiFi gratuit în întreaga proprietate.",

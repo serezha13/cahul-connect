@@ -1,6 +1,7 @@
 import { mockRestaurants } from '@/apps/restaurants/mock-data';
 import { MockRestaurant } from '@/interfaces/mock-restaurant.interface';
 import { Badge, Button, Card, Group, Image, Text } from '@mantine/core';
+import Router from 'next/router';
 import { PiCurrencyDollar } from 'react-icons/pi';
 
 const Restaurants = () => {
@@ -20,7 +21,7 @@ const Restaurants = () => {
         <>
             <h1 className="title">Restaurante</h1>
 
-            <div className="max-w-6xl mx-auto gap-10 grid grid-cols-1 px-4 py-10">
+            <div className="max-w-6xl mx-auto gap-4 grid grid-cols-1">
                 {restaurants.map((restaurant, index) => (
                     <Card shadow="sm" padding="lg" radius="md" withBorder key={index}>
                         <Card.Section>
@@ -52,6 +53,7 @@ const Restaurants = () => {
                                 ))}
                             </div>
                             <Button
+                                onClick={() => Router.push(`restaurants/form?id=${restaurant.id}`)}
                                 className="w-auto m-0 bg-[rgb(231,245,255)]"
                                 variant="light"
                                 color="blue"

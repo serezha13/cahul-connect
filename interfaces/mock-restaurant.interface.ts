@@ -1,4 +1,5 @@
 export interface MockRestaurant {
+    id: number,
     image: string;
     title: string;
     desc: string;
