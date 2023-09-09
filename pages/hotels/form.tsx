@@ -94,7 +94,10 @@ const Form: NextPage<HotelCardProps> = (props) => {
       <div className="flex justify-between mt-4">
         <div>
           <Text fz="xl" span fw={500}>
-            {(days || 1) * price} MDL
+            {Intl.NumberFormat("de-DE", {
+              style: "currency",
+              currency: "MDL",
+            }).format((days || 1) * price)}
           </Text>
           <Text span fz="sm" c="dimmed">
             {" "}
@@ -111,6 +114,9 @@ export default Form;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
+    ...(!hotels.find((item) => item.id === Number(context.query.id)) && {
+      redirect: { destination: "/hotels" },
+    }),
     props: { ...hotels.find((item) => item.id === Number(context.query.id)) },
   };
 };
