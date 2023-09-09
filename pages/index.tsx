@@ -22,8 +22,8 @@ export default function Home() {
 const WeatherSection = () => {
 
 	return (
-		<div className='mt-12'>
-			<div className='rounded p-4 bg-gradient-to-b from-blue-700 to-blue-500 text-white'>
+		<div className='my-6'>
+			<div className='rounded-xl p-4 bg-gradient-to-b from-gray-900 to-gray-700 text-white'>
 				<div className='flex justify-between '>
 					<div className='text-4xl font-semibold'>34°</div>
 					<div className='flex flex-col items-center'>
@@ -35,7 +35,7 @@ const WeatherSection = () => {
 				<div className='grid grid-cols-5'>
 					{forecast.map((item, index) => (
 						<div key={index} className='flex flex-col items-center text-center'>
-							<div className='text-gray-300 text-sm font-semibold'>{item.tempNight}°</div>
+							<div className='text-gray-500 text-sm font-semibold'>{item.tempNight}°</div>
 							<Image width={40} height={40} src={item.iconSrc} alt='weather-icon' />
 							<div className='text-sm font-semibold'>{item.tempDay}°</div>
 						</div>

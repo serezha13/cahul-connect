@@ -30,11 +30,13 @@ const NavbarBottom = () => {
 	)
 
 	return (
-		<div className='p-2 sticky z-10 left-0 bottom-0 w-full bg-slate-50 md:hidden'>
-			<div className='flex justify-around gap-4'>
-				{links.map((item, index) => (
-					<NavItem key={index} {...item} />
-				))}
+		<div className='p-2 sticky z-10 left-0 bottom-0 w-full md:hidden mt-auto'>
+			<div className='bg-white shadow p-2 rounded-md'>
+				<div className='flex justify-around gap-4'>
+					{links.map((item, index) => (
+						<NavItem key={index} {...item} />
+					))}
+				</div>
 			</div>
 		</div>
 	)
@@ -88,7 +90,7 @@ const useStyles = createStyles((theme) => ({
 const iconsSize = 20
 
 const links = [
-	{ label: 'Hotele', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
+	{ label: 'Hoteluri', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
 	{ label: 'Restaurante', link: '/restaurants', icon: <IoIosRestaurant size={iconsSize} /> },
 	{ label: 'Home', link: '/', icon: <AiOutlineHome size={iconsSize} /> },
 	{ label: 'Magazine', link: '/stores', icon: <BiStore size={iconsSize} /> },
