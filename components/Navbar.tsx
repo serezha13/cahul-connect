@@ -12,7 +12,7 @@ export default function Navbar() {
 
 	return (
 		<>
-			<NavbarTop />
+			{/* <NavbarTop /> */}
 			<NavbarBottom />
 		</>
 	)
@@ -30,7 +30,7 @@ const NavbarBottom = () => {
 	)
 
 	return (
-		<div className='p-2 fixed z-10 left-0 bottom-0 w-full bg-slate-50 md:hidden'>
+		<div className='p-2 sticky z-10 left-0 bottom-0 w-full bg-slate-50 md:hidden'>
 			<div className='flex justify-around gap-4'>
 				{links.map((item, index) => (
 					<NavItem key={index} {...item} />
