@@ -3,14 +3,33 @@
 @tailwind utilities;
 
 body {
-    color: #333;
+  color: #333;
 	background-color: #f5f6f7;
 }
 
 .mantine-Carousel-control {
-    background-color: white;
+  background-color: white;
+}
+
+.mantine-DatePicker-day {
+  &[data-in-range] {
+    background-color: rgb(51, 51, 51, 0.1);
+  }
+  &[data-in-range]:hover {
+    background-color: rgb(51, 51, 51, 0.1);
+  }
+  &[data-selected] {
+    background-color: #333;
+  }
+  &[data-selected]:hover {
+    background-color: #333;
+  }
 }
 
 .title {
-    @apply text-5xl font-semibold mb-4;
+  @apply text-5xl font-semibold mb-4;
+}
+
+.title_md {
+    @apply text-3xl mb-2 text-center;
 }
