@@ -6,6 +6,7 @@ import { BiCar, BiStore } from 'react-icons/bi'
 import { IoIosRestaurant } from 'react-icons/io'
 import { AiOutlineHome } from 'react-icons/ai'
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
 export default function Navbar() {
@@ -19,12 +20,13 @@ export default function Navbar() {
 }
 
 const NavbarBottom = () => {
+	const router = useRouter()
 
-	const NavItem = ({ label, link, icon }) => (
+	const NavItem = ({ label, link, icon, active = false }) => (
 		<Link href={link}>
 			<div className='flex flex-col items-center'>
-				<div>{icon}</div>
-				<div className='text-xs'>{label}</div>
+				<div style={{ color: `${active && '#539DF3'}` }}>{icon}</div>
+				<div className={`text-xs ${active && 'text-[#539DF3]'}`}>{label}</div>
 			</div>
 		</Link>
 	)
@@ -34,7 +36,7 @@ const NavbarBottom = () => {
 			<div className='bg-white shadow p-2 rounded-md'>
 				<div className='flex justify-around gap-4'>
 					{links.map((item, index) => (
-						<NavItem key={index} {...item} />
+						<NavItem key={index} {...item} active={router.pathname === item.link} />
 					))}
 				</div>
 			</div>
