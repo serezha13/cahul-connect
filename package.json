@@ -11,7 +11,9 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
+    "@mantine/carousel": "^6.0.20",
     "@mantine/core": "^6.0.20",
+    "@mantine/dates": "^6.0.20",
     "@mantine/form": "^6.0.20",
     "@mantine/hooks": "^6.0.20",
     "@mantine/modals": "^6.0.20",
@@ -22,6 +24,8 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "axios": "^1.5.0",
+    "dayjs": "^1.11.9",
+    "embla-carousel-react": "^8.0.0-rc12",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",
