@@ -14,3 +14,7 @@ body {
 .title {
     @apply text-5xl font-semibold mb-4;
 }
+
+.title_md {
+    @apply text-3xl mb-2 text-center;
+}
