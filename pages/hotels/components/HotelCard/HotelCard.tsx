@@ -1,5 +1,5 @@
 import {
-    Button,
+  Button,
   Card,
   Group,
   Image,
@@ -11,8 +11,10 @@ import {
 import { Carousel } from "@mantine/carousel";
 
 import { AiFillStar } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 export interface HotelCardProps {
+  id: number;
   name: string;
   stars: number;
   price: number;
@@ -20,7 +22,7 @@ export interface HotelCardProps {
   description: string;
 }
 
-const useStyles = createStyles((theme) => ({
+export const useCardStyles = createStyles((theme) => ({
   price: {
     color: theme.colorScheme === "dark" ? theme.white : theme.black,
   },
@@ -57,9 +59,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 const HotelCard = (props: HotelCardProps) => {
-  const { name, stars, price, images, description } = props;
+  const { id, name, stars, price, images, description } = props;
 
-  const { classes } = useStyles();
+  const router = useRouter();
+  const { classes } = useCardStyles();
 
   const slides = images.map((path, index) => (
     <Carousel.Slide key={`${name}-slide-${index}`}>
@@ -103,12 +106,14 @@ const HotelCard = (props: HotelCardProps) => {
             {price} MDL
           </Text>
           <Text span fz="sm" c="dimmed">
-            {' '}
+            {" "}
             / noaptea
           </Text>
         </div>
 
-        <Button radius="md" variant="outline" className="border-[#333]">Bronează</Button>
+        <Button radius="md" variant="outline" className="border-[#333]" onClick={() => router.push(`hotels/form?id=${id}`)}>
+          Bronează
+        </Button>
       </Group>
     </Card>
   );

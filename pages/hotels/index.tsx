@@ -4,32 +4,25 @@ import {
   Group,
   Skeleton,
   Text,
-  TextInput,
-  createStyles,
-  getStylesRef,
-  rem,
 } from "@mantine/core";
-import { DatePickerInput } from "@mantine/dates";
-import Image from "next/image";
 import { AiFillStar } from "react-icons/ai";
-import HotelCard from "./components/HotelCard/HotelCard";
+
 import hotels from "./static/hotels.static";
-import { useState } from "react";
-import { Carousel } from "@mantine/carousel";
+import HotelCard from "./components/HotelCard/HotelCard";
 
 const Hotels = () => {
   return (
-    <section className="max-w-7xl mx-auto py-16">
+    <section className="max-w-7xl mx-auto pb-16">
       <div className="text-5xl font-semibold mb-4">Hotel-uri</div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {hotels.map((item, index) => (
           <HotelCard {...item} key={`${index}-h`} />
         ))}
-        <Card withBorder>
+        <Card withBorder className="flex flex-col">
           <Card.Section>
             <Skeleton height={220} />
           </Card.Section>
-          <div className="flex flex-col">
+          <div className="flex flex-col h-full">
             <Group position="apart" mt="lg">
               <Text fw={500} fz="lg">
                 Aici poate fi hotel-ul dvs.
