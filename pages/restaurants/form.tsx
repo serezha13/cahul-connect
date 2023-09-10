@@ -103,10 +103,12 @@ const Form: NextPage = () => {
                 </Button>
             </form>
 
-            <Modal padding={20} size="xs" opened={opened} onClose={closeModal} withCloseButton={false} centered>
-                <div className="text-2xl font-bold text-center mb-2">Felicitari!</div>
+            <Modal padding={20} withCloseButton={false} opened={opened} onClose={closeModal} centered>
                 <BsCheck2Circle className="mx-auto text-green-900" size="128"></BsCheck2Circle>
-                <div className="text-center mt-2">Rezervarea a fost efectuata cu succes!</div>
+                <div className="text-3xl font-medium text-center">Felicitari!</div>
+                <Text c="dimmed" className="text-center">
+                    Rezervarea a fost efectuata cu succes!
+                </Text>
             </Modal>
         </>
     );

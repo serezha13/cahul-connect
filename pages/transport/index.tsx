@@ -1,6 +1,6 @@
 import { numberEightCoords, numberFiveCoords, numberFourCoords, numberOneCoords } from '@/apps/transport/route-coords';
 import TransportMap from '@/components/TransportMap';
-import { Button, Checkbox, Modal, SegmentedControl, TextInput } from '@mantine/core';
+import { Button, Checkbox, Modal, SegmentedControl, Text, TextInput } from '@mantine/core';
 import { useForm, yupResolver } from '@mantine/form';
 import { useDisclosure } from '@mantine/hooks';
 import 'ol/ol.css';
@@ -163,10 +163,12 @@ const Transport = () => {
                 </form>
             )}
 
-            <Modal padding={20} size="xs" opened={opened} onClose={closeModal} withCloseButton={false} centered>
-                <div className="text-2xl font-bold text-center mb-2">Felicitari!</div>
+            <Modal padding={20} withCloseButton={false} opened={opened} onClose={closeModal} centered>
                 <BsCheck2Circle className="mx-auto text-green-900" size="128"></BsCheck2Circle>
-                <div className="text-center mt-2">Comanda a fost plasata cu succes!</div>
+                <div className="text-3xl font-medium text-center">Felicitari!</div>
+                <Text c="dimmed" className="text-center">
+                    Comanda a fost plasata cu succes!
+                </Text>
             </Modal>
         </div>
     );
