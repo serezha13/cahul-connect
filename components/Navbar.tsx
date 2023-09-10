@@ -17,33 +17,29 @@ export default function Navbar() {
 }
 
 const NavbarBottom = () => {
-	const router = useRouter()
+    const router = useRouter();
 
-	const NavItem = ({ label, link, icon, active = false }) => (
-		<Link href={link}>
-			<div className='flex flex-col items-center'>
-				<div style={{ color: `${active && '#539DF3'}` }}>{icon}</div>
-				<div className={`text-xs ${active && 'text-[#539DF3]'}`}>{label}</div>
-			</div>
-		</Link>
-	)
+    const NavItem = ({ label, link, icon, active = false }) => (
+        <Link href={link}>
+            <div className="flex flex-col items-center">
+                <div style={{ color: `${active && '#539DF3'}` }}>{icon}</div>
+                <div className={`text-xs ${active && 'text-[#539DF3]'}`}>{label}</div>
+            </div>
+        </Link>
+    );
 
-	return (
-		<div className='p-2 sticky z-10 left-0 bottom-0 w-full md:hidden mt-auto'>
-			<div className='bg-white shadow p-2 rounded-md'>
-				<div className='flex justify-around gap-4'>
-					{links.map((item, index) => (
-						<NavItem key={index} {...item} active={router.pathname === item.link} />
-					))}
-				</div>
-			</div>
-		</div>
-	)
-}
-
-
-
-
+    return (
+        <div className="p-2 sticky z-10 left-0 bottom-0 w-full md:hidden mt-auto">
+            <div className="bg-white shadow p-2 rounded-md">
+                <div className="flex justify-around gap-4">
+                    {links.map((item, index) => (
+                        <NavItem key={index} {...item} active={router.pathname === item.link} />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
 
 const useStyles = createStyles((theme) => ({
     header: {
@@ -89,12 +85,12 @@ const useStyles = createStyles((theme) => ({
 const iconsSize = 20;
 
 const links = [
-	{ label: 'Hotele', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
-	{ label: 'Restaurante', link: '/restaurants', icon: <IoIosRestaurant size={iconsSize} /> },
-	{ label: 'Home', link: '/', icon: <AiOutlineHome size={iconsSize} /> },
-	{ label: 'Magazine', link: '/stores', icon: <BiStore size={iconsSize} /> },
-	{ label: 'Transport', link: '/transport', icon: <BiCar size={iconsSize} /> },
-]
+    { label: 'Hoteluri', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
+    { label: 'Restaurante', link: '/restaurants', icon: <IoIosRestaurant size={iconsSize} /> },
+    { label: 'Home', link: '/', icon: <AiOutlineHome size={iconsSize} /> },
+    { label: 'Magazine', link: '/stores', icon: <BiStore size={iconsSize} /> },
+    { label: 'Transport', link: '/transport', icon: <BiCar size={iconsSize} /> },
+];
 
 const NavbarTop = () => {
     const [opened, { toggle }] = useDisclosure(false);
