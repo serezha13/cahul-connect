@@ -87,8 +87,8 @@ const Transport = () => {
                         {!checked && (
                             <TextInput
                                 {...form.getInputProps('address')}
-                                placeholder="Introduceti strada curenta"
-                                label="Strada"
+                                placeholder="Introduceti adresa curenta"
+                                label="Adresa"
                                 withAsterisk
                             />
                         )}
