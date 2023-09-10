@@ -1,6 +1,7 @@
 import { Autocomplete, Group, Header, createStyles, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { AiOutlineHome } from 'react-icons/ai';
 import { BiCar, BiStore } from 'react-icons/bi';
 import { FaSearch } from 'react-icons/fa';
@@ -16,21 +17,23 @@ export default function Navbar() {
 }
 
 const NavbarBottom = () => {
-    const NavItem = ({ label, link, icon }) => (
-        <Link href={link}>
-            <div className="flex flex-col items-center">
-                <div>{icon}</div>
-                <div className="text-xs">{label}</div>
-            </div>
-        </Link>
-    );
+	const router = useRouter()
+
+	const NavItem = ({ label, link, icon, active = false }) => (
+		<Link href={link}>
+			<div className='flex flex-col items-center'>
+				<div style={{ color: `${active && '#539DF3'}` }}>{icon}</div>
+				<div className={`text-xs ${active && 'text-[#539DF3]'}`}>{label}</div>
+			</div>
+		</Link>
+	)
 
 	return (
 		<div className='p-2 sticky z-10 left-0 bottom-0 w-full md:hidden mt-auto'>
 			<div className='bg-white shadow p-2 rounded-md'>
 				<div className='flex justify-around gap-4'>
 					{links.map((item, index) => (
-						<NavItem key={index} {...item} />
+						<NavItem key={index} {...item} active={router.pathname === item.link} />
 					))}
 				</div>
 			</div>
