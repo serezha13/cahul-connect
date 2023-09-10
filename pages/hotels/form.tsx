@@ -2,7 +2,7 @@ import moment from "moment";
 
 import { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
-import { Button, Image, Text } from "@mantine/core";
+import { Button, Image, Modal, Text, TextInput } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import { DatePicker } from "@mantine/dates";
 import { AiOutlineWifi } from "react-icons/ai";
@@ -14,6 +14,7 @@ import {
   useCardStyles,
 } from "./components/HotelCard/HotelCard";
 import hotels from "./static/hotels.static";
+import { useDisclosure } from "@mantine/hooks";
 
 const Form: NextPage<HotelCardProps> = (props) => {
   const { name, price, images, description, map } = props;
@@ -23,6 +24,7 @@ const Form: NextPage<HotelCardProps> = (props) => {
     moment().toDate(),
     moment().add(5, "days").toDate(),
   ]);
+  const [opened, { open, close }] = useDisclosure(false);
 
   const slides = images.map((path, index) => (
     <Carousel.Slide key={`${name}-slide-${index}`}>
@@ -33,7 +35,7 @@ const Form: NextPage<HotelCardProps> = (props) => {
   const days = moment(value[1]).diff(value[0], "days");
 
   return (
-    <div className="max-w-7xl pb-16">
+    <div className="max-w-7xl">
       <Carousel
         withIndicators
         loop
@@ -101,11 +103,33 @@ const Form: NextPage<HotelCardProps> = (props) => {
           </Text>
           <Text span fz="sm" c="dimmed">
             {" "}
-            / noaptea
+            / {days || "1"} nopți
           </Text>
         </div>
-        <Button className="bg-[#333] text-white">Rezerva</Button>
+        <Button
+          className="bg-[#333] hover:bg-[#333] text-white"
+          onClick={() => open()}
+          disabled={isNaN(days)}
+        >
+          Rezerva
+        </Button>
       </div>
+      <Modal withCloseButton={false} opened={opened} onClose={close} centered>
+        <div className="flex items-center justify-center">
+          <Image
+            src="/hotels/qr-hotel.png"
+            alt="qr-hotel"
+            width={192}
+            height={192}
+          />
+        </div>
+        <div className="text-3xl font-medium text-center">
+          Rezervat cu succes!
+        </div>
+        <Text c="dimmed" className="text-center">
+          Prezentati qr-code-ul in hotel in ziua check-in-ului.
+        </Text>
+      </Modal>
     </div>
   );
 };
