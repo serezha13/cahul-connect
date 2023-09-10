@@ -16,6 +16,14 @@ const Transport = () => {
     const [route, setRoute] = useState<string | null>('routeOne');
     const [opened, { open, close }] = useDisclosure(false);
 
+    const openModal = () => {
+        open();
+
+        setTimeout(() => {
+            closeModal();
+        }, 3000);
+    };
+
     const closeModal = () => {
         close();
 
@@ -74,7 +82,7 @@ const Transport = () => {
                     <TransportMap coords={routes.find((item) => item.value === route)?.coords!}></TransportMap>
                 </>
             ) : (
-                <form className="flex flex-col justify-between gap-5" onSubmit={form.onSubmit((values) => open())}>
+                <form className="flex flex-col justify-between gap-5" onSubmit={form.onSubmit(() => openModal())}>
                     <div className="flex flex-col gap-1.5">
                         <TextInput {...form.getInputProps('name')} placeholder="Numele dvs" label="Nume" withAsterisk />
                         <TextInput
