@@ -1,14 +1,26 @@
 import { numberEightCoords, numberFiveCoords, numberFourCoords, numberOneCoords } from '@/apps/transport/route-coords';
 import TransportMap from '@/components/TransportMap';
-import { Button, Checkbox, SegmentedControl, Select, TextInput } from '@mantine/core';
+import { Button, Checkbox, Modal, SegmentedControl, Select, TextInput } from '@mantine/core';
+import { useForm, yupResolver } from '@mantine/form';
+import { useDisclosure } from '@mantine/hooks';
 import 'ol/ol.css';
 import { useState } from 'react';
+import { BsCheck2Circle } from 'react-icons/bs';
+
+import * as yup from 'yup';
 
 const Transport = () => {
     const [section, setSection] = useState('buses');
     const [rideType, setRideType] = useState('cheap');
     const [checked, setChecked] = useState(false);
     const [route, setRoute] = useState<string | null>('routeOne');
+    const [opened, { open, close }] = useDisclosure(false);
+
+    const closeModal = () => {
+        close();
+
+        form.reset();
+    };
 
     const routes = [
         { value: 'routeOne', label: 'Ruta numarul 1', coords: numberOneCoords },
@@ -16,6 +28,27 @@ const Transport = () => {
         { value: 'routeFive', label: 'Ruta numarul 5', coords: numberFiveCoords },
         { value: 'routeEight', label: 'Ruta numarul 8', coords: numberEightCoords },
     ];
+
+    const schema = yup.object().shape({
+        name: yup.string().required('Campul este obligatoriu').min(4, 'Minim 4 caractere'),
+        phoneNumber: yup
+            .string()
+            .required('Campul este obligatoriu')
+            .typeError('Introduceti un numar')
+            .min(9, 'Numarul trebuie sa contina 9 cifre')
+            .max(9, 'Numarul trebuie sa contina 9 cifre'),
+        ...(!checked && { address: yup.string().required('Campul este obligatoriu') }),
+    });
+
+    const form = useForm({
+        initialValues: {
+            name: '',
+            phoneNumber: '',
+            address: '',
+        },
+
+        validate: yupResolver(schema),
+    });
 
     return (
         <div className="flex flex-col">
@@ -41,12 +74,24 @@ const Transport = () => {
                     <TransportMap coords={routes.find((item) => item.value === route)?.coords!}></TransportMap>
                 </>
             ) : (
-                <form className="flex flex-col justify-between gap-5">
+                <form className="flex flex-col justify-between gap-5" onSubmit={form.onSubmit((values) => open())}>
                     <div className="flex flex-col gap-1.5">
-                        <TextInput placeholder="Numele dvs" label="Nume" withAsterisk />
-                        <TextInput placeholder="Numarul dvs de telefon" label="Numarul de telefon" withAsterisk />
+                        <TextInput {...form.getInputProps('name')} placeholder="Numele dvs" label="Nume" withAsterisk />
+                        <TextInput
+                            {...form.getInputProps('phoneNumber')}
+                            placeholder="Numarul dvs de telefon"
+                            label="Numarul de telefon"
+                            withAsterisk
+                        />
 
-                        {!checked && <TextInput placeholder="Introduceti strada curenta" label="Strada" withAsterisk />}
+                        {!checked && (
+                            <TextInput
+                                {...form.getInputProps('address')}
+                                placeholder="Introduceti strada curenta"
+                                label="Strada"
+                                withAsterisk
+                            />
+                        )}
                     </div>
 
                     <Checkbox
@@ -101,11 +146,17 @@ const Transport = () => {
                         ]}
                     />
 
-                    <Button className="bg-black h-12" color="dark" size="md">
+                    <Button className="bg-black h-12" type="submit" color="dark" size="md">
                         Comanda
                     </Button>
                 </form>
             )}
+
+            <Modal padding={20} size="xs" opened={opened} onClose={closeModal} withCloseButton={false} centered>
+                <div className="text-2xl font-bold text-center mb-2">Felicitari!</div>
+                <BsCheck2Circle className="mx-auto text-green-900" size="128"></BsCheck2Circle>
+                <div className="text-center mt-2">Comanda a fost plasata cu succes!</div>
+            </Modal>
         </div>
     );
 };
