@@ -44,9 +44,6 @@ const NavbarBottom = () => {
 }
 
 
-
-
-
 const useStyles = createStyles((theme) => ({
 	header: {
 		paddingLeft: theme.spacing.md,
@@ -91,12 +88,12 @@ const useStyles = createStyles((theme) => ({
 const iconsSize = 20;
 
 const links = [
-	{ label: 'Hotele', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
+	{ label: 'Hoteluri', link: '/hotels', icon: <MdOutlineHotel size={iconsSize} /> },
 	{ label: 'Restaurante', link: '/restaurants', icon: <IoIosRestaurant size={iconsSize} /> },
 	{ label: 'Home', link: '/', icon: <AiOutlineHome size={iconsSize} /> },
 	{ label: 'Magazine', link: '/stores', icon: <BiStore size={iconsSize} /> },
 	{ label: 'Transport', link: '/transport', icon: <BiCar size={iconsSize} /> },
-]
+];
 
 const NavbarTop = () => {
 	const [opened, { toggle }] = useDisclosure(false);
