@@ -31,7 +31,7 @@ const NavbarBottom = () => {
 	)
 
 	return (
-		<div className='p-2 sticky z-10 left-0 bottom-0 w-full md:hidden mt-auto'>
+		<div className='p-2 sticky z-10 left-0 bottom-0 w-full mt-auto'>
 			<div className='bg-white shadow p-2 rounded-md'>
 				<div className='flex justify-around gap-4'>
 					{links.map((item, index) => (

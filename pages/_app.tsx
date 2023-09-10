@@ -9,7 +9,7 @@ const montserrat = Montserrat({ subsets: ['latin'] });
 
 export function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className={`${montserrat} `}>
+		<div className={`${montserrat} max-w-2xl mx-auto`}>
 			<Layout>
 				<Component {...pageProps} />
 			</Layout>
