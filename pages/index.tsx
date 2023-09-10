@@ -1,22 +1,46 @@
-import { forecast, newsList } from '@/mock/home/mock';
-import Image from 'next/image';
 import React from 'react';
+import moment from 'moment';
+import { forecast, newsList } from '@/mock/home/mock';
+import { Avatar } from '@mantine/core';
+import Image from 'next/image';
+
+import { Carousel } from '@mantine/carousel';
 
 
 export default function Home() {
 	return (
 		<main className='flex flex-col gap-4'>
-			<div className='text-center'>
-				<div className='text-7xl leading-none'>CAHUL</div>
-				<div className='text-3xl tracking-widest leading-none'>CONNECT</div>
-			</div>
+			<ProfileSection />
+			<UserMembershipSection />
 			<WeatherSection />
 			<NewsSection />
 		</main>
 	)
 }
 
+const UserMembershipSection = () => {
 
+	return (
+		<div>
+
+		</div>
+	)
+}
+
+const ProfileSection = () => {
+
+	return (
+		<div>
+			<div className='flex justify-between items-center'>
+				<div className=''>
+					<Image width={80} height={80} className='mix-blend-multiply' src={'/logo512.png'} alt='logo' />
+				</div>
+				<Avatar size='lg' radius="xl" src={'https://avatars.githubusercontent.com/u/10353853'} />
+			</div>
+			<div className='border-t mt-4'></div>
+		</div>
+	)
+}
 
 
 const WeatherSection = () => {
@@ -50,18 +74,20 @@ const NewsSection = () => {
 
 	return (
 		<div>
-			<div className='text-4xl font-semibold mb-4'>Ultimele știri:</div>
-			<div className='flex flex-col gap-4'>
+			<div className='text-2xl font-semibold mb-4'>Ultimele știri:</div>
+			<Carousel align='center' withControls={false} slideGap='md' mx={-20} slideSize="80%" >
 				{newsList.map((item, index) => (
-					<div key={index} className='border p-4 rounded overflow-hidden'>
-						<div className='relative aspect-video -mx-4 -mt-4'>
-							<Image className='object-cover' fill src={item.img} alt='news-image' />
+					<Carousel.Slide key={index}>
+						<div key={index} className='border p-4 rounded overflow-hidden bg-white h-full'>
+							<div className='relative aspect-video -mx-4 -mt-4'>
+								<Image className='object-cover' fill src={item.img} alt='news-image' />
+							</div>
+							<div className='mt-4 text-lg font-bold leading-none '>{item.title.slice(0, 50)}...</div>
+							<div className='text-xs font-semibold mt-2'>{moment().format('ll, HH:mm')}</div>
 						</div>
-						<div className='mt-4 text-lg font-bold leading-none'>{item.title}</div>
-						<div className='mt-4 text-sm'>{item.description}</div>
-					</div>
+					</Carousel.Slide>
 				))}
-			</div>
+			</Carousel>
 		</div>
 	)
 }

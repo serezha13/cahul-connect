@@ -1,11 +1,6 @@
 
 export const newsList = [
 	{
-		"img": "https://ziuadeazi.md/wp-content/uploads/2023/09/375026698_1365951237649931_3144126668990265500_n-350x197.jpg",
-		"title": "Rudele solicită ajutor pentru a găsi un bătrân din Slobozia Mare",
-		"description": "Căpățană Piotr Semionovici, născut la 06.04.1942, locuitor al satului Slobozia-Mare, a dispărut pe 08 septembrie 2023, la orele 1.00 noaptea. Rudele solicită ajutor pentru a-l găsi...."
-	},
-	{
 		"img": "https://ziuadeazi.md/wp-content/uploads/2023/09/moldeu-350x197.jpeg",
 		"title": "A fost semnat Acordul de participare a Moldovei la Programul UE privind Piața Unică",
 		"description": "La Bruxelles, a fost semnat Acordul de participare a Republicii Moldova la Programul UE privind Piața Unică. Președinta Maia Sandu a menționat că programul va contribui..."
