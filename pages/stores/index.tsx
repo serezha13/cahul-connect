@@ -69,8 +69,8 @@ const Stores = () => {
               </Text>
               <div className="flex justify-between items-center mt-4">
                 <div className="flex items-center gap-2">
-                  <AiOutlineClockCircle color="#333" size={24} />
-                  <div className="text-sm">{item.workingHours}</div>
+                  <AiOutlineClockCircle color="#333" size={20} />
+                  <div className="text-xs">{item.workingHours}</div>
                 </div>
                 <Button
                   onClick={() => Router.push(`stores/form?id=${item.id}`)}
