@@ -46,7 +46,7 @@ const Restaurants = () => {
                                 </Text>
                                 {restaurant.hot && (
                                     <Badge className="px-4 py-3" size="md" color="pink" variant="light">
-                                        Hot
+                                        Promovat
                                     </Badge>
                                 )}
                             </Group>
@@ -66,13 +66,9 @@ const Restaurants = () => {
                                 </div>
                                 <Button
                                     onClick={() => Router.push(`restaurants/form?id=${restaurant.id}`)}
-                                    className="w-auto m-0 bg-[rgb(231,245,255)]"
-                                    variant="light"
-                                    color="blue"
-                                    fullWidth
-                                    mt="md"
-                                    radius="md">
-                                    View more
+                                    variant="outline"
+                                    className="border-[#333] text-[#333]">
+                                    Detalii
                                 </Button>
                             </Group>
                         </Card>

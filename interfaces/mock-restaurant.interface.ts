@@ -5,4 +5,5 @@ export interface MockRestaurant {
     desc: string;
     hot: boolean;
     price: number;
+    __html: string;
 }
