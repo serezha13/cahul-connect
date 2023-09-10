@@ -35,7 +35,7 @@ const Restaurants = () => {
                 {restaurants
                     .filter((item) => (filter ? item.title.toLowerCase().includes(filter.toLowerCase()) : true))
                     .map((restaurant, index) => (
-                        <Card shadow="sm" padding="lg" radius="md" withBorder key={index}>
+                        <Card shadow="sm" padding="lg" withBorder key={index}>
                             <Card.Section>
                                 <Image src={restaurant.image} height={220} alt="Norway" />
                             </Card.Section>
