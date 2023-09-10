@@ -55,7 +55,7 @@ const Restaurants = () => {
                                 {restaurant.desc}
                             </Text>
 
-                            <Group position="apart" mt="lg" mb="xs">
+                            <Group position="apart" mt="lg">
                                 <div className="flex">
                                     {Array.from(Array(restaurant.price).keys()).map((i) => (
                                         <PiCurrencyDollar className="text-md text-green-700" key={i} />
