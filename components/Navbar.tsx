@@ -24,8 +24,8 @@ const NavbarBottom = () => {
 	const NavItem = ({ label, link, icon, active = false }) => (
 		<Link href={link}>
 			<div className='flex flex-col items-center'>
-				<div style={{ color: `${active && '#539DF3'}` }}>{icon}</div>
-				<div className={`text-xs ${active ? 'text-[#539DF3]' : ''}`}>{label}</div>
+				<div style={{ color: `${active && 'hsl(0,74%,45%)'}` }}>{icon}</div>
+				<div className={`text-xs ${active ? 'text-[hsl(0,74%,45%)]' : ''}`}>{label}</div>
 			</div>
 		</Link>
 	)
