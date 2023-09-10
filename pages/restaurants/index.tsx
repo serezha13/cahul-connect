@@ -37,7 +37,7 @@ const Restaurants = () => {
                     .map((restaurant, index) => (
                         <Card shadow="sm" padding="lg" radius="md" withBorder key={index}>
                             <Card.Section>
-                                <Image src={restaurant.image} height={250} alt="Norway" />
+                                <Image src={restaurant.image} height={220} alt="Norway" />
                             </Card.Section>
 
                             <Group position="apart" mt="md" mb="xs">
