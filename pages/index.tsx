@@ -7,6 +7,7 @@ import { Avatar, Badge, Button, Card, Text } from '@mantine/core';
 import Image from 'next/image';
 
 import { Carousel } from '@mantine/carousel';
+import Router from 'next/router';
 
 const getFromStore = (key: string) => typeof localStorage !== "undefined" && JSON.parse(localStorage[key] ?? 'false')
 
@@ -84,7 +85,7 @@ const UserMembershipSection = () => {
 						</div>
 					</Card>
 					<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-						<Button className='bg-[#333] hover:bg-[#545454]'>Logheaza-te</Button>
+						<Button className='bg-[#333] hover:bg-[#545454]' onClick={() => Router.push('/auth/login')}>Logheaza-te</Button>
 					</div>
 				</div>
 			)}
