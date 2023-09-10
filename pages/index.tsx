@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import moment from 'moment';
 import { forecast, newsList } from '@/mock/home/mock';
@@ -8,7 +6,7 @@ import Image from 'next/image';
 
 import { Carousel } from '@mantine/carousel';
 
-const getFromStore = (key: string) => typeof localStorage !== "undefined" && JSON.parse(localStorage[key] ?? 'false')
+const getFromStore = (key: string) => JSON.parse(localStorage[key] ?? 'false')
 
 
 export default function Home() {
