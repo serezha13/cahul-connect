@@ -31,10 +31,10 @@ const Transport = () => {
     };
 
     const routes = [
-        { value: 'routeOne', label: '1', coords: numberOneCoords },
-        { value: 'routeFour', label: '4', coords: numberFourCoords },
-        { value: 'routeFive', label: '5', coords: numberFiveCoords },
-        { value: 'routeEight', label: '8', coords: numberEightCoords },
+        { value: 'routeOne', label: 'Ruta 1', coords: numberOneCoords },
+        { value: 'routeFour', label: 'Ruta 4', coords: numberFourCoords },
+        { value: 'routeFive', label: 'Ruta 5', coords: numberFiveCoords },
+        { value: 'routeEight', label: 'Ruta 8', coords: numberEightCoords },
     ];
 
     const schema = yup.object().shape({
@@ -79,9 +79,8 @@ const Transport = () => {
 
             {section === 'buses' ? (
                 <>
-                    <div className="text-center text-xl mb-2 font-bold">Selectati ruta</div>
-                    <SegmentedControl className="mb-4" value={route} onChange={setRoute} data={routes} />
                     <TransportMap coords={routes.find((item) => item.value === route)?.coords!}></TransportMap>
+                    <SegmentedControl className="mt-2" value={route} onChange={setRoute} data={routes} />
                 </>
             ) : (
                 <form
