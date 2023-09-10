@@ -1,10 +1,14 @@
+'use client';
+
 import React from 'react';
 import moment from 'moment';
 import { forecast, newsList } from '@/mock/home/mock';
-import { Avatar } from '@mantine/core';
+import { Avatar, Badge, Button, Card, Text } from '@mantine/core';
 import Image from 'next/image';
 
 import { Carousel } from '@mantine/carousel';
+
+const getFromStore = (key: string) => typeof localStorage !== "undefined" && JSON.parse(localStorage[key] ?? 'false')
 
 
 export default function Home() {
@@ -19,15 +23,78 @@ export default function Home() {
 }
 
 const UserMembershipSection = () => {
+	const isLogged = getFromStore('isLogged')
+	const membership = getFromStore('membership')
 
 	return (
 		<div>
+			<div className='text-2xl font-semibold mb-4'>Abonamentele mele</div>
+			{isLogged && (
+				<div>
+					{membership && (
+						<Card withBorder >
+							<div className='flex justify-between'>
+								<div className='flex flex-col'>
+									<div className='font-semibold'>Fitness Gym</div>
+									<div className='flex flex-col mt-auto'>
+										<Text c='dimmed' fz='xs'>Valabil pana la: </Text>
+										<Badge radius='sm'>{moment().add('days', 30).format('ll')}</Badge>
+									</div>
+								</div>
+								<div>
+									<Image width={96} height={96} src='/hotels/qr-hotel.png' alt='#' />
+								</div>
+							</div>
+						</Card>
+					)}
+					{!membership && (
+						<Card withBorder >
+							<div className='flex justify-between'>
+								<div className='flex flex-col'>
+									<div className='font-semibold'>Fitness Gym</div>
+									<Text c='dimmed' fz='xs'>Abonament lunar</Text>
+									<div className='flex items-center gap-1 mt-auto'>
+										<div>350 MDL</div>
+										<Text c='dimmed' fz='xs'>/ luna</Text>
+									</div>
+								</div>
+								<div>
+									<Image className='blur-sm' width={96} height={96} src='/hotels/qr-hotel.png' alt='#' />
+								</div>
+							</div>
+						</Card>
+					)}
+				</div>
+			)}
+			{!isLogged && (
+				<div className='relative'>
+					<Card withBorder className='blur-sm' >
+						<div className='flex justify-between'>
+							<div className='flex flex-col'>
+								<div className='font-semibold'>Fitness Gym</div>
+								<Text c='dimmed' fz='xs'>Abonament lunar</Text>
+								<div className='flex items-center gap-1 mt-auto'>
+									<div>350 MDL</div>
+									<Text c='dimmed' fz='xs'>/ luna</Text>
+								</div>
+							</div>
+							<div>
+								<Image className='blur-sm' width={96} height={96} src='/hotels/qr-hotel.png' alt='#' />
+							</div>
+						</div>
+					</Card>
+					<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+						<Button className='bg-[#333] hover:bg-[#545454]'>Logheaza-te</Button>
+					</div>
+				</div>
+			)}
 
 		</div>
 	)
 }
 
 const ProfileSection = () => {
+	const isLogged = getFromStore('isLogged')
 
 	return (
 		<div>
@@ -35,13 +102,12 @@ const ProfileSection = () => {
 				<div className=''>
 					<Image width={80} height={80} className='mix-blend-multiply' src={'/logo512.png'} alt='logo' />
 				</div>
-				<Avatar size='lg' radius="xl" src={'https://avatars.githubusercontent.com/u/10353853'} />
+				<Avatar size='lg' radius="xl" src={isLogged && 'https://avatars.githubusercontent.com/u/10353853'} />
 			</div>
 			<div className='border-t mt-4'></div>
 		</div>
 	)
 }
-
 
 const WeatherSection = () => {
 
@@ -74,7 +140,7 @@ const NewsSection = () => {
 
 	return (
 		<div>
-			<div className='text-2xl font-semibold mb-4'>Ultimele știri:</div>
+			<div className='text-2xl font-semibold mb-4'>Ultimele știri</div>
 			<Carousel align='center' withControls={false} slideGap='md' mx={-20} slideSize="80%" >
 				{newsList.map((item, index) => (
 					<Carousel.Slide key={index}>
