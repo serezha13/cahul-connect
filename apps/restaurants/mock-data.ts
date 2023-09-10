@@ -13,8 +13,8 @@ export const mockRestaurants: MockRestaurant[] = [
     {
         id: 2,
         image: 'https://assets.cntraveller.in/photos/63d8e5103d7229d4cf308f01/16:9/w_1920,h_1080,c_limit/Prequel-lead.jpg',
-        title: 'BelMondo',
-        desc: '"BelMondo" este o oază de savoare și rafinament în mijlocul orașului, unde bucataria internațională se întâlnește cu influențe culinare tradiționale și moderne. ',
+        title: 'Bel Mondo',
+        desc: '"Bel Mondo" este o oază de savoare și rafinament în mijlocul orașului, unde bucataria internațională se întâlnește cu influențe culinare tradiționale și moderne. ',
         hot: true,
         price: 2,
         __html: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2776.863303689527!2d28.18663447650083!3d45.89404697108425!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65dd66f4a2815%3A0xc32f0a9ba6b6f75b!2sBelMondo!5e0!3m2!1sen!2s!4v1694306385709!5m2!1sen!2s"  style="border:0;" allowFullscreen="" loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>`
@@ -40,10 +40,10 @@ export const mockRestaurants: MockRestaurant[] = [
     {
         id: 5,
         image: 'https://toohotel.com/wp-content/uploads/2022/09/TOO_restaurant_Panoramique_vue_Paris_Seine_Tour_Eiffel_2.jpg',
-        title: 'Legend Restaurant',
-        desc: '"Legend Restaurant" este un loc emblematic și captivant în inima orașului, unde gastronomia devine o legendă. Cu o atmosferă ce amintește de povești vechi și un decor care îmbină elemente tradiționale și moderne, acest restaurant vă poartă într-o călătorie epică a gusturilor.',
+        title: 'IL Restaurant',
+        desc: '"IL Restaurant" este un loc emblematic și captivant în inima orașului, unde gastronomia devine o legendă. Cu o atmosferă ce amintește de povești vechi și un decor care îmbină elemente tradiționale și moderne, acest restaurant vă poartă într-o călătorie epică a gusturilor.',
         hot: true,
         price: 1,
-        __html: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2776.499231532811!2d28.185508976501097!3d45.90132767108439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65ceb4a612d65%3A0x4d3647e2df7fc274!2zIkVsIENhZmUi!5e0!3m2!1sen!2s!4v1694306626105!5m2!1sen!2s"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+        __html: `<iframe class="mt-4 w-full aspect-square" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11105.575783943317!2d28.1904019!3d45.903433!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b65d80f71717f7%3A0xc9a19963f4a129cd!2sIL%20Restaurant!5e0!3m2!1sen!2s!4v1694313233390!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`
     },
 ]

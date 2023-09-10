@@ -6,7 +6,6 @@ import { useDisclosure } from '@mantine/hooks';
 import 'ol/ol.css';
 import { useState } from 'react';
 import { BsCheck2Circle } from 'react-icons/bs';
-
 import * as yup from 'yup';
 
 const Transport = () => {
